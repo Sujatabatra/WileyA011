@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Maria" class="com.sujata.producer.Singer">
+		<constructor-arg name="song" value="Let It Be!"></constructor-arg>
+	</bean>
+
+	<bean id="Yohannes" class="com.sujata.producer.Juggler">
+		<property name="balls" value="5"></property>
+	</bean>
+	
+	<bean id="guitar" class="com.sujata.producer.Guitar"></bean>
+	
+	<bean id="drum" class="com.sujata.producer.Drum"></bean>
+	
+	<bean id="Jamie" class="com.sujata.producer.Instrumentalist">
+		<property name="instrument" ref="guitar"></property>
+	</bean>
+	
+	<bean id="stageA" class="com.sujata.producer.Stage">
+		<property name="performers">
+			<list>
+				<ref bean="Maria"/>
+				<ref bean="Jamie"/>
+				<ref bean="Yohannes"/>
+			</list>
+		</property>
+	</bean>
+</beans>
